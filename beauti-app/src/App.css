@@ -1,0 +1,128 @@
+@media print {
+  @page {
+    size: A4;
+    margin: 15mm;
+    margin-header: 0;
+    margin-footer: 0;
+  }
+
+  /* Hide browser's default print headers/footers */
+  @page :first {
+    margin-top: 15mm;
+  }
+
+  @page :left {
+    margin-left: 15mm;
+  }
+
+  @page :right {
+    margin-right: 15mm;
+  }
+
+  /* Hide browser print headers and footers in supported browsers */
+  html, body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Force page breaks to avoid header/footer content */
+  .no-headers-footers {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* A4 Paper Size: 210mm × 297mm */
+  .invoice-container {
+    width: 210mm;
+    height: 297mm;
+    margin: 0;
+    padding: 15mm;
+    background: white;
+    box-shadow: none;
+  }
+
+  /* Ensure proper page breaks */
+  .invoice-page {
+    page-break-after: always;
+  }
+
+  /* Hide all navigation and UI elements when printing */
+  .print\\:hidden {
+    display: none !important;
+  }
+
+  /* Force background to be visible */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  /* Remove any default margins */
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Scale content to fit A4 properly */
+  .table-responsive {
+    overflow: visible !important;
+  }
+
+  /* Ensure tables don't break across pages */
+  table {
+    page-break-inside: avoid;
+  }
+
+  /* Font sizes for print */
+  .print-fine {
+    font-size: 10px !important;
+  }
+
+  .print-small {
+    font-size: 9px !important;
+  }
+
+  .print-normal {
+    font-size: 11px !important;
+  }
+
+  .print-medium {
+    font-size: 12px !important;
+  }
+
+  .print-large {
+    font-size: 14px !important;
+  }
+}
+
+.print-invoice {
+  font-family: 'Times New Roman', serif;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.invoice-content {
+  width: 100%;
+  max-width: 210mm;
+}
+
+.invoice-a4 {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  background: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+@media print {
+  .invoice-a4 {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    box-shadow: none;
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}

@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+/* === Testimonial Section Styles === */
+.testimonial-section {
+  padding: 60px 0;
+  background-color: #f9f9f9;
+}
+
+.testimonial-slider-wrap {
+  position: relative;
+}
+
+#testimonial-nav {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+
+#testimonial-nav .prev,
+#testimonial-nav .next {
+  cursor: pointer;
+  font-size: 24px;
+  color: #007bff;
+}
+
+.author-pic img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+/* === Stepper Form Utility Classes === */
+.input {
+  @apply w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 mb-3;
+}
+
+.btn {
+  @apply px-6 py-2 rounded font-medium transition;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
