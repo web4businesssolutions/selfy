@@ -11,7 +11,8 @@ export default defineConfig({
   server: {
     port: process.env.PORT ? parseInt(process.env.PORT) : 5173,
     host: '0.0.0.0',
-    strictPort: true
+    strictPort: true,
+    allowedHosts: ['selfy-1wjo.onrender.com']
   },
   build: {
     outDir: 'dist'
