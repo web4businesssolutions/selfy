@@ -12,7 +12,7 @@ export default defineConfig({
     port: process.env.PORT ? parseInt(process.env.PORT) : 5173,
     host: '0.0.0.0',
     strictPort: true,
-    allowedHosts: ['selfy-1wjo.onrender.com']
+    allowedHosts: ['selfy-1wjo.onrender.com', 'www.selfysnap.com']
   },
   build: {
     outDir: 'dist'
