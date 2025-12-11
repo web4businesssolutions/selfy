@@ -152,7 +152,7 @@ const Product = () => {
 
 
             <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {products.map(({ id, title, price, image, rating }) => (
+                {products?.map(({ id, title, price, image, rating }) => (
                     <div
                         key={id}
                         className="w-full max-w-xs bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700"
@@ -168,7 +168,7 @@ const Product = () => {
                             </a>
                             <div className="flex items-center mt-2.5 mb-3">
                                 <div className="flex items-center space-x-1">
-                                    {[...Array(5)].map((_, i) => (
+                                    {[...Array(5)]?.map((_, i) => (
                                         <svg
                                             key={i}
                                             className={`w-3.5 h-3.5 ${i < rating ? 'text-yellow-300' : 'text-gray-200 dark:text-gray-600'}`}
