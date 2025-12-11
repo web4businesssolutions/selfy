@@ -27,18 +27,26 @@ const footerRoutes = require('./route/footerRoute');
 const app = express();
 
 // ✅ Enable CORS for frontend origin
-app.use(cors({
-<<<<<<< HEAD
-    origin: (origin, callback) => callback(null, true),
-=======
-      // origin: 'https://selfy-snap-1-7kn9.onrender.com',
-    // origin: ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175'],
-    // origin: ['https://www.selfysnap.com',]
-    origin: ['https://www.selfysnap.com', 'https://selfy-1wjo.onrender.com']
 
->>>>>>> f5b9a5a400710368583ceac82c089913b580f449
-    credentials: true,
-}));
+                // --- CORS Configuration ---
+                const allowedOrigins = [
+                    'https://selfysnap.com',
+                    'https://www.selfysnap.com'
+                ];
+
+                app.use((req, res, next) => {
+                    const origin = req.headers.origin;
+                    if (allowedOrigins.includes(origin)) {
+                        res.header('Access-Control-Allow-Origin', origin);
+                        res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+                        res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
+                        res.header('Access-Control-Allow-Credentials', 'true');
+                    }
+                    if (req.method === 'OPTIONS') {
+                        return res.sendStatus(204);
+                    }
+                    next();
+                });
 
 app.use(express.json());
 
@@ -58,6 +66,13 @@ app.use(
 app.use(express.urlencoded({ extended: true }));
 
 //health check
+// --- Global error handler for CORS failures ---
+app.use((err, req, res, next) => {
+    if (err && err.name === 'CorsError') {
+        return res.status(403).json({ error: 'CORS Error: Not allowed by CORS' });
+    }
+    next(err);
+});
 app.get('/api/health', (req, res) => {
   res.status(200).json({ status: 'OK', message: 'Backend is running' });
 });
