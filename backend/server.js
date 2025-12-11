@@ -27,10 +27,11 @@ const footerRoutes = require('./route/footerRoute');
 const app = express();
 
 // ✅ Enable CORS for frontend origin
-     const allowedOrigins = [
-                    'https://selfysnap.com',
-                    'https://www.selfysnap.com'
-                ];
+     const allowedOrigins = 'https://www.selfysnap.com'
+     // const allowedOrigins = [
+     //                'https://selfysnap.com',
+     //                'https://www.selfysnap.com'
+     //            ];
 
                 app.use((req, res, next) => {
                     const origin = req.headers.origin;
