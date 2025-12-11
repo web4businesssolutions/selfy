@@ -27,26 +27,12 @@ const footerRoutes = require('./route/footerRoute');
 const app = express();
 
 // ✅ Enable CORS for frontend origin
+app.use(cors({
+      // origin: 'https://selfy-snap-1-7kn9.onrender.com',
+    origin: 'https://www.selfysnap.com',
 
-                // --- CORS Configuration ---
-                const allowedOrigins = [
-                    'https://selfysnap.com',
-                    'https://www.selfysnap.com'
-                ];
-
-                app.use((req, res, next) => {
-                    const origin = req.headers.origin;
-                    if (allowedOrigins.includes(origin)) {
-                        res.header('Access-Control-Allow-Origin', origin);
-                        res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-                        res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
-                        res.header('Access-Control-Allow-Credentials', 'true');
-                    }
-                    if (req.method === 'OPTIONS') {
-                        return res.sendStatus(204);
-                    }
-                    next();
-                });
+    credentials: true,
+}));
 
 app.use(express.json());
 
