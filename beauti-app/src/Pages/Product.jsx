@@ -84,7 +84,7 @@ const Product = () => {
             <h2 className="text-center text-3xl font-bold mb-8 text-red-500">Our Categories</h2>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                {categories.map(({ _id, name, image }) => (
+                {categories?.map(({ _id, name, image }) => (
                     <div
                         key={_id}
                         className="group bg-white rounded-xl border border-gray-200 overflow-hidden shadow hover:shadow-xl transition-all duration-300"
