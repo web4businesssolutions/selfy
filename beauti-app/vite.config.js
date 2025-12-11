@@ -8,6 +8,9 @@ export default defineConfig({
     tailwindcss(),
     react()
   ],
+    server: {
+    allowedHosts: ['www.selfysnap.com']
+  },
   build: {
     outDir: 'dist'
   },
